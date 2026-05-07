@@ -1,6 +1,8 @@
 # 普通的鼠标指针
 
-中文 | 适用于 [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) 平台
+中文 | [English](./README_en-US.md)
+
+适用于 [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) 平台
 
 ## 关于项目
 
