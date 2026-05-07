@@ -5,9 +5,9 @@
 ## 关于项目
 
 - **原作者**：[哔哩哔哩 @HappyCadogt](https://space.bilibili.com/406949928)
-- Linux 移植：本项目
+- **移植者**：[@Tseshongfeeshur（Ryan）](https://github.com/Tseshongfeeshur)（初始 Linux 移植）、本项目（V1.4 更新 + 多分辨率构建）
 
-由于截至项目发布，原作者仅为 Windows 平台提供适配，尚未提供 [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) 版本，遂将其转换为适用于大多数桌面环境的 [XDG 光标主题包](https://specifications.freedesktop.org/icon-theme/latest/)，以供 [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) 用户使用。**特别感谢原作者 HappyCadogt 的付出和努力。**
+本项目基于 Ryan 的 [cat-cursors](https://github.com/Tseshongfeeshur/cat-cursors) 初始移植，同步原作者 V1.4 更新，并增加了 8~64px 共 12 档分辨率支持。
 
 ## 项目内容
 
@@ -19,24 +19,24 @@
 ## 适用平台
 
 - [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) 平台所有支持 [XDG 光标主题](https://specifications.freedesktop.org/icon-theme/latest/) 的桌面环境
-- 已在 [Hyprland](https://hyprland.org/) 通过测试，表现良好
+- 已在 [Hyprland](https://hyprland.org/) 与 KDE Plasma 等多桌面环境通过测试，表现良好
 
 ## 安装方式
 
 ### 为当前用户安装
 
 ```bash
-git clone https://github.com/<your-repo>/普通鼠标指针-linux.git
+git clone https://github.com/<your-repo>/catcursor_linux.git
 mkdir -p ~/.local/share/icons/
-cp -r 普通鼠标指针-linux/普通的鼠标指针 ~/.local/share/icons/
+cp -r catcursor_linux/普通的鼠标指针 ~/.local/share/icons/
 ```
 
 **或**直接复制 cursors 目录：
 
 ```bash
-git clone https://github.com/<your-repo>/普通鼠标指针-linux.git
+git clone https://github.com/<your-repo>/catcursor_linux.git
 mkdir -p ~/.icons/
-cp -r 普通鼠标指针-linux/普通的鼠标指针 ~/.icons/
+cp -r catcursor_linux/普通的鼠标指针 ~/.icons/
 ```
 
 ### 为所有用户安装（需 root）
@@ -82,6 +82,7 @@ export XCURSOR_SIZE=24
 
 建议写入 `~/.profile` 或 `~/.xprofile`。
 
+也可通过 DMS 等配置工具进行设置。
 ---
 
 ## 替换件
@@ -139,6 +140,6 @@ export XCURSOR_SIZE=24
 
 ## 鸣谢
 
-- **原作者** [**HappyCadogt**](https://space.bilibili.com/406949928)，没有他的付出，就没有这个项目
+- **原作者** [**HappyCadogt**](https://space.bilibili.com/406949928)
 - `win2xcur` + `xcursorgen`，为多分辨率光标转换提供了便捷的方式
 - `xcur2png`，用于光标帧提取与调试
