@@ -93,22 +93,59 @@ The original V1.4 package includes **alternative "link click" cursor animations*
 | File | Frames | Description |
 |---|---|---|
 | `Link（1）.ani` | 94 frames | Catfish-themed click animation |
-| `Link（2）.ani` | 60 frames | Alternative click animation |
+| `Link（2）.ani` | 60 frames | Alternative click animation (current default) |
+
+Replacement source files are in the `替换件/` directory.
 
 ### Usage (Linux)
 
-1. Convert to XCursor:
-   ```bash
-   pip install win2xcur
-   win2xcur 替换件/点击/Link（1）.ani -o /tmp/replace/
-   ```
+Install dependencies:
+```bash
+pip install win2xcur Pillow
+# System packages (Arch): sudo pacman -S xcur2png xcursorgen
+```
 
-2. Rename and place as `hand2` in the cursor theme:
-   ```bash
-   cp /tmp/replace/Link（1） ~/.local/share/icons/猫标/cursors/hand2
-   ```
+Example using Link（1）:
 
-3. For multi-size support, rebuild with `xcursorgen` (see `build-multi-cursor.py`).
+```bash
+# 1. Convert .ani to XCursor
+win2xcur 替换件/Link（1）.ani -o /tmp/replace/
+
+# 2. Extract frames and rebuild at 12 sizes (8–64 px)
+python3 build-multi-cursor.py --single /tmp/replace/Link（1） --output hand2
+
+# 3. Overwrite hand2 in the theme
+cp hand2 ~/.local/share/icons/猫标/cursors/hand2
+
+# 4. Reload
+hyprctl setcursor "猫标" 24
+```
+
+Switch back to default Link（2）:
+```bash
+git checkout 猫标/cursors/hand2
+hyprctl setcursor "猫标" 24
+```
+
+---
+
+## Building from Source
+
+To build the Linux version from Windows source files (`.ani`/`.cur`):
+
+```bash
+pip install win2xcur Pillow
+```
+
+See `build-multi-cursor.py` for the full pipeline:
+
+1. `win2xcur` converts `.ani`/`.cur` to single-size XCursor
+2. `xcur2png` extracts frames
+3. PIL resizes to target sizes
+4. `xcursorgen` builds multi-size XCursor
+5. Create alias symlinks + `cursor.theme` / `index.theme`
+
+Project source files are in `工程文件/` — PNG frames for all cursor variants, suitable for derivative works.
 
 ---
 

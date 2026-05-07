@@ -96,22 +96,59 @@ export XCURSOR_SIZE=24
 | 替换件 | 帧数 | 说明 |
 |---|---|---|
 | `Link（1）.ani` | 94 帧 | 鲶鱼主题点击动画 |
-| `Link（2）.ani` | 60 帧 | 备选点击动画 |
+| `Link（2）.ani` | 60 帧 | 备选点击动画（当前默认） |
+
+替换件源文件位于仓库 `替换件/` 目录。
 
 ### 使用方法（Linux）
 
-1. 使用 `win2xcur` 将替换件转为 XCursor：
-   ```bash
-   pip install win2xcur
-   win2xcur 替换件/点击/Link（1）.ani -o /tmp/replace/
-   ```
+安装依赖：
+```bash
+pip install win2xcur Pillow
+# 系统包（Arch）：sudo pacman -S xcur2png xcursorgen
+```
 
-2. 将生成的 `Link（1）` 重命名为 `hand2`，放入光标主题的 `cursors/` 目录覆盖原文件：
-   ```bash
-   cp /tmp/replace/Link（1） ~/.local/share/icons/猫标/cursors/hand2
-   ```
+以 Link（1）鲶鱼版为例：
 
-3. 如需多尺寸支持，使用 `xcursorgen` 重新生成（参考 `build-multi-cursor.py`）。
+```bash
+# 1. 将 .ani 转为 XCursor
+win2xcur 替换件/Link（1）.ani -o /tmp/replace/
+
+# 2. 提取帧并重建 12 尺寸（8~64px）
+python3 build-multi-cursor.py --single /tmp/replace/Link（1） --output hand2
+
+# 3. 覆盖主题中的 hand2
+cp hand2 ~/.local/share/icons/猫标/cursors/hand2
+
+# 4. 重新加载
+hyprctl setcursor "猫标" 24
+```
+
+切换回默认 Link（2）：
+```bash
+git checkout 猫标/cursors/hand2
+hyprctl setcursor "猫标" 24
+```
+
+---
+
+## 自行构建
+
+如需从 Windows 源文件（`.ani`/`.cur`）自行构建 Linux 版：
+
+```bash
+pip install win2xcur Pillow
+```
+
+转换流程见 `build-multi-cursor.py`，核心步骤：
+
+1. `win2xcur` 将 `.ani`/`.cur` 转为单尺寸 XCursor
+2. `xcur2png` 提取帧
+3. PIL 缩放至目标尺寸
+4. `xcursorgen` 生成多尺寸 XCursor
+5. 创建别名链接 + `cursor.theme` / `index.theme`
+
+源工程文件位于 `工程文件/`，含各光标类型的 PNG 源帧，可用于二次创作。
 
 ---
 
