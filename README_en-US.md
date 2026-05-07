@@ -28,7 +28,7 @@ Based on Ryan's [cat-cursors](https://github.com/Tseshongfeeshur/cat-cursors) in
 ```bash
 git clone https://github.com/<your-repo>/catcursor_linux.git
 mkdir -p ~/.local/share/icons/
-cp -r catcursor_linux/普通的鼠标指针 ~/.local/share/icons/
+cp -r catcursor_linux/猫标 ~/.local/share/icons/
 ```
 
 Or directly into `~/.icons/`:
@@ -36,14 +36,14 @@ Or directly into `~/.icons/`:
 ```bash
 git clone https://github.com/<your-repo>/catcursor_linux.git
 mkdir -p ~/.icons/
-cp -r catcursor_linux/普通的鼠标指针 ~/.icons/
+cp -r catcursor_linux/猫标 ~/.icons/
 ```
 
 ### System-wide (requires root)
 
 ```bash
 sudo mkdir -p /usr/share/icons/
-sudo cp -r 普通的鼠标指针 /usr/share/icons/
+sudo cp -r 猫标 /usr/share/icons/
 ```
 
 ## Applying
@@ -51,32 +51,32 @@ sudo cp -r 普通的鼠标指针 /usr/share/icons/
 ### Hyprland
 
 ```bash
-hyprctl setcursor "普通的鼠标指针" 24
+hyprctl setcursor "猫标" 24
 ```
 
 Or in `~/.config/hypr/hyprland.conf`:
 
 ```conf
-exec-once = hyprctl setcursor "普通的鼠标指针" 24
+exec-once = hyprctl setcursor "猫标" 24
 ```
 
 ### GNOME
 
 ```bash
-gsettings set org.gnome.desktop.interface cursor-theme "普通的鼠标指针"
+gsettings set org.gnome.desktop.interface cursor-theme "猫标"
 gsettings set org.gnome.desktop.interface cursor-size 24
 ```
 
 ### KDE Plasma
 
-Navigate to **System Settings → Appearance → Cursors**, select "普通的鼠标指针".
+Navigate to **System Settings → Appearance → Cursors**, select "猫标".
 
 ### Other Environments
 
 Set `XCURSOR_THEME` and `XCURSOR_SIZE` environment variables:
 
 ```bash
-export XCURSOR_THEME="普通的鼠标指针"
+export XCURSOR_THEME="猫标"
 export XCURSOR_SIZE=24
 ```
 
@@ -105,7 +105,7 @@ The original V1.4 package includes **alternative "link click" cursor animations*
 
 2. Rename and place as `hand2` in the cursor theme:
    ```bash
-   cp /tmp/replace/Link（1） ~/.local/share/icons/普通的鼠标指针/cursors/hand2
+   cp /tmp/replace/Link（1） ~/.local/share/icons/猫标/cursors/hand2
    ```
 
 3. For multi-size support, rebuild with `xcursorgen` (see `build-multi-cursor.py`).
@@ -115,7 +115,7 @@ The original V1.4 package includes **alternative "link click" cursor animations*
 ## File Structure
 
 ```
-普通的鼠标指针/
+猫标/
 ├── cursor.theme
 ├── index.theme
 └── cursors/

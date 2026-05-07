@@ -1,4 +1,4 @@
-# 普通的鼠标指针
+# 猫标
 
 中文 | [English](./README_en-US.md)
 
@@ -30,7 +30,7 @@
 ```bash
 git clone https://github.com/<your-repo>/catcursor_linux.git
 mkdir -p ~/.local/share/icons/
-cp -r catcursor_linux/普通的鼠标指针 ~/.local/share/icons/
+cp -r catcursor_linux/猫标 ~/.local/share/icons/
 ```
 
 **或**直接复制 cursors 目录：
@@ -38,14 +38,14 @@ cp -r catcursor_linux/普通的鼠标指针 ~/.local/share/icons/
 ```bash
 git clone https://github.com/<your-repo>/catcursor_linux.git
 mkdir -p ~/.icons/
-cp -r catcursor_linux/普通的鼠标指针 ~/.icons/
+cp -r catcursor_linux/猫标 ~/.icons/
 ```
 
 ### 为所有用户安装（需 root）
 
 ```bash
 sudo mkdir -p /usr/share/icons/
-sudo cp -r 普通的鼠标指针 /usr/share/icons/
+sudo cp -r 猫标 /usr/share/icons/
 ```
 
 ## 应用方式
@@ -53,32 +53,32 @@ sudo cp -r 普通的鼠标指针 /usr/share/icons/
 ### Hyprland
 
 ```bash
-hyprctl setcursor "普通的鼠标指针" 24
+hyprctl setcursor "猫标" 24
 ```
 
 或在 `~/.config/hypr/hyprland.conf` 中添加：
 
 ```conf
-exec-once = hyprctl setcursor "普通的鼠标指针" 24
+exec-once = hyprctl setcursor "猫标" 24
 ```
 
 ### GNOME
 
 ```bash
-gsettings set org.gnome.desktop.interface cursor-theme "普通的鼠标指针"
+gsettings set org.gnome.desktop.interface cursor-theme "猫标"
 gsettings set org.gnome.desktop.interface cursor-size 24
 ```
 
 ### KDE Plasma
 
-导航至 **系统设置 → 外观和样式 → 颜色和主题 → 光标**，选择 "普通的鼠标指针"。
+导航至 **系统设置 → 外观和样式 → 颜色和主题 → 光标**，选择 "猫标"。
 
 ### 其他桌面环境 / 窗口管理器
 
 设置 `XCURSOR_THEME` 环境变量：
 
 ```bash
-export XCURSOR_THEME="普通的鼠标指针"
+export XCURSOR_THEME="猫标"
 export XCURSOR_SIZE=24
 ```
 
@@ -108,7 +108,7 @@ export XCURSOR_SIZE=24
 
 2. 将生成的 `Link（1）` 重命名为 `hand2`，放入光标主题的 `cursors/` 目录覆盖原文件：
    ```bash
-   cp /tmp/replace/Link（1） ~/.local/share/icons/普通的鼠标指针/cursors/hand2
+   cp /tmp/replace/Link（1） ~/.local/share/icons/猫标/cursors/hand2
    ```
 
 3. 如需多尺寸支持，使用 `xcursorgen` 重新生成（参考 `build-multi-cursor.py`）。
@@ -118,7 +118,7 @@ export XCURSOR_SIZE=24
 ## 文件结构
 
 ```
-普通的鼠标指针/
+猫标/
 ├── cursor.theme
 ├── index.theme
 └── cursors/
